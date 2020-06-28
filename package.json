@@ -1,0 +1,32 @@
+{
+  "name": "tribute",
+  "version": "0.1.0",
+  "description": "A slack app for easily managing on-call schedules for your team",
+  "main": "index.js",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.3.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "2.0.5"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "netlify dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dansteren/tribute.git"
+  },
+  "keywords": [
+    "tribute"
+  ],
+  "author": "Dan Steren <daniel.d.steren@gmail.com> (https://github.com/dansteren)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dansteren/tribute/issues"
+  },
+  "homepage": "https://github.com/dansteren/tribute#readme"
+}
