@@ -25,12 +25,16 @@ function parseSlackMessage(string) {
   return chunks.reduce(stringToObject, {});
 }
 
-function handleSlashCommands(event, context, callback) {
-  const request = parseSlackMessage(event.body);
-  callback(null, {
-    statusCode: 200,
-    body: `Thanks for trying the \`/tribute\` command. It's currently in early development stages so all it can do is echo back what you send:\n>${request.text}`,
-  });
-}
+const middleware = () => {
+  return {
+    before(handler, next) {
+      const originalBody = handler.event.body;
+      const newBody = parseSlackMessage(originalBody);
+      // eslint-disable-next-line no-param-reassign
+      handler.event.body = newBody;
+      next();
+    },
+  };
+};
 
-exports.handler = handleSlashCommands;
+module.exports = middleware;
