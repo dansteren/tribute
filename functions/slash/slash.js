@@ -1,6 +1,6 @@
 const middy = require('@middy/core');
-const slackTextParser = require('./middleware/slackTextParser');
-const octothorpe = require('./octothorpe');
+const slackTextParser = require('../middleware/slackTextParser');
+const octothorpe = require('../shared/octothorpe');
 
 const app = octothorpe((event, context, callback) => {
   callback(null, {

@@ -1,6 +1,6 @@
 const axios = require('axios');
 const middy = require('@middy/core');
-const slackTextParser = require('./middleware/slackTextParser');
+const slackTextParser = require('../middleware/slackTextParser');
 
 function interactions(event, context, callback) {
   if (event.body.payload.actions[0].action_id === 'slash_init_users_selected') {
