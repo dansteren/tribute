@@ -21,6 +21,27 @@
             }
           }
         }
+      },
+      "fauna-shell": {
+        "version": "0.11.4",
+        "bottle": {
+          "cellar": ":any_skip_relocation",
+          "prefix": "/usr/local",
+          "files": {
+            "catalina": {
+              "url": "https://homebrew.bintray.com/bottles/fauna-shell-0.11.4.catalina.bottle.tar.gz",
+              "sha256": "9ede3a23aa4ec4690edc5852b6d498b6d55a7a7b803e2e8d2680cbeae94cac48"
+            },
+            "mojave": {
+              "url": "https://homebrew.bintray.com/bottles/fauna-shell-0.11.4.mojave.bottle.tar.gz",
+              "sha256": "3eb88ef49e40e98ce221081e78f941238a20283475c58a83f6ae0554572ab58a"
+            },
+            "high_sierra": {
+              "url": "https://homebrew.bintray.com/bottles/fauna-shell-0.11.4.high_sierra.bottle.tar.gz",
+              "sha256": "08460537ad680455a9ceded7646a87d9c95fc75fac4db659f7c2a3bdf5b5c9bf"
+            }
+          }
+        }
       }
     }
   },

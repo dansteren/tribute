@@ -1,0 +1,10 @@
+type Rotation {
+  teamId: ID!
+  channelId: ID!
+  users: [ID!]!
+}
+
+type Query {
+  rotations: [Rotation!]!
+  rotation(teamId: ID!, channelId: ID!): Rotation
+}
