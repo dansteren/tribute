@@ -9,3 +9,9 @@ node_modules
 
 # Built files
 /functions/
+
+# VS Code
+*.code-workspace
+/.vscode/*
+!.vscode/extensions.json
+!.vscode/settings.json.default
