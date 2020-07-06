@@ -1,15 +1,15 @@
-const middy = require('@middy/core');
-const slackTextParser = require('../middleware/slackTextParser');
-const octothorpe = require('../shared/octothorpe');
+import middy from '@middy/core';
+import octothorpe from './shared/octothorpe';
+import slackTextParser from './middleware/slackTextParser';
 
-const app = octothorpe((event, context, callback) => {
-  callback(null, {
+const app = octothorpe(async (event) => {
+  return {
     statusCode: 200,
     body: `Thanks for trying the \`/tribute\` command. It's currently in early development stages so all it can do is echo back what you sent:\n>${event.text}`,
-  });
+  };
 });
 
-app.on('init', (event, context, callback) => {
+app.on('init', async () => {
   const response = {
     blocks: [
       {
@@ -30,27 +30,27 @@ app.on('init', (event, context, callback) => {
       },
     ],
   };
-  callback(null, {
+  return {
     statusCode: 200,
     headers: { 'Content-type': 'application/json' },
     body: JSON.stringify(response),
-  });
+  };
 });
 
-app.on('help', (event, context, callback) => {
-  callback(null, {
+app.on('help', async (event) => {
+  return {
     statusCode: 200,
     body: `Looks like you called for help (${event.command})`,
-  });
+  };
 });
 
-app.on('swap', (event, context, callback) => {
-  callback(null, {
+app.on('swap', async (event) => {
+  return {
     statusCode: 200,
     body: `Looks like you called the swap command with the following args: ${event.args}`,
-  });
+  };
 });
 
-const handler = middy(app.listen).use(slackTextParser());
-
-exports.handler = handler;
+// This cannot be exported as a default because of the way netlify expects this
+// eslint-disable-next-line import/prefer-default-export
+export const handler = middy(app.listen).use(slackTextParser());

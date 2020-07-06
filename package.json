@@ -5,7 +5,8 @@
   "main": "index.js",
   "dependencies": {
     "@middy/core": "^1.0.0",
-    "axios": "^0.19.2"
+    "axios": "^0.19.2",
+    "netlify-lambda": "^1.6.3"
   },
   "devDependencies": {
     "eslint": "^7.3.1",
@@ -16,8 +17,9 @@
     "prettier": "2.0.5"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "netlify dev --live"
+    "build": "netlify-lambda build",
+    "start": "netlify-lambda serve src/functions -p 8888",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",

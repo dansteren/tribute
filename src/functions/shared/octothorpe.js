@@ -9,8 +9,7 @@ function OctothorpeException(message) {
  * @callback routeHandler
  * @param event
  * @param context
- * @param callback
- * @return {null}
+ * @return {Promise}
  */
 
 /**
@@ -18,7 +17,7 @@ function OctothorpeException(message) {
  * @param {routeHandler} defaultHandler - A default handler to use if the action
  *   isn't specified.
  */
-const octothorpe = (defaultHandler) => {
+export default function octothorpe(defaultHandler) {
   if (typeof defaultHandler !== 'function') {
     throw new OctothorpeException('No default route handler defined!');
   }
@@ -48,20 +47,18 @@ const octothorpe = (defaultHandler) => {
      * @param context
      * @param callback
      */
-    listen(event, context, callback) {
+    async listen(event, context) {
       const [command, ...args] = event.body.text.split(/\s+/);
       const newEvent = {
         ...event.body,
         command,
         args,
       };
-      if (typeof routes[command] === 'function') {
-        routes[command](newEvent, context, callback);
-      } else {
-        defaultRouteHandler(newEvent, context, callback);
-      }
+      const response =
+        typeof routes[command] === 'function'
+          ? await routes[command](newEvent, context)
+          : await defaultRouteHandler(newEvent, context);
+      return response;
     },
   };
-};
-
-module.exports = octothorpe;
+}

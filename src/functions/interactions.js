@@ -1,8 +1,8 @@
-const axios = require('axios');
-const middy = require('@middy/core');
-const slackTextParser = require('../middleware/slackTextParser');
+import axios from 'axios';
+import middy from '@middy/core';
+import slackTextParser from './middleware/slackTextParser';
 
-function interactions(event, context, callback) {
+async function interactions(event) {
   if (event.body.payload.actions[0].action_id === 'slash_init_users_selected') {
     const selectedUsers = event.body.payload.actions[0].selected_users;
     if (selectedUsers.length === 0) {
@@ -29,12 +29,14 @@ function interactions(event, context, callback) {
         )
         .catch(() => {});
     }
-    callback(null, {
+    return {
       statusCode: 200,
       body: 'OK',
-    });
+    };
   }
+  return null;
 }
-const handler = middy(interactions).use(slackTextParser());
 
-exports.handler = handler;
+// This cannot be exported as a default because of the way netlify expects this
+// eslint-disable-next-line import/prefer-default-export
+export const handler = middy(interactions).use(slackTextParser());

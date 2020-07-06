@@ -25,9 +25,9 @@ function parseSlackMessage(string) {
   return chunks.reduce(stringToObject, {});
 }
 
-const middleware = () => {
+export default function middleware() {
   return {
-    before(handler, next) {
+    async before(handler) {
       const originalBody = handler.event.body;
       const newBody = parseSlackMessage(originalBody);
       if (typeof newBody.payload === 'string') {
@@ -35,9 +35,6 @@ const middleware = () => {
       }
       // eslint-disable-next-line no-param-reassign
       handler.event.body = newBody;
-      next();
     },
   };
-};
-
-module.exports = middleware;
+}
