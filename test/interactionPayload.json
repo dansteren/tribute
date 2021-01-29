@@ -1,0 +1,41 @@
+{
+  "payload": {
+    "type": "block_actions",
+    "user": {
+      "id": "U04TKP753",
+      "username": "dan",
+      "name": "dan",
+      "team_id": "T04TKP74X"
+    },
+    "api_app_id": "A0165FXMPD0",
+    "token": "XmQ3HBKfxUaDJcrgzERjLRcQ",
+    "container": {
+      "type": "message",
+      "message_ts": "1593387457.003600",
+      "channel_id": "C072AM2SH",
+      "is_ephemeral": true
+    },
+    "trigger_id": "1203921355414.4937789167.2411c3e0f6018a04528e4f7afc952096",
+    "team": {
+      "id": " ",
+      "domain": "ardentink"
+    },
+    "channel": {
+      "id": "C072AM2SH",
+      "name": "test"
+    },
+    "response_url": "https:\\/\\/hooks.slack.com\\/actions\\/T04TKP74X\\/1209275595413\\/vAgwu50jTa4OKBeWrJQacZ7Y",
+    "actions": [
+      {
+        "type": "multi_users_select",
+        "action_id": "bQuY",
+        "block_id": "BBC",
+        "selected_users": [
+          "U04TKQAT7",
+          "U04TS8WDE"
+        ],
+        "action_ts": "1593387727.799112"
+      }
+    ]
+  }
+}

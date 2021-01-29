@@ -1,0 +1,21 @@
+{
+  "path": "/.netlify/functions/test",
+  "httpMethod": "POST",
+  "queryStringParameters": {},
+  "headers": {
+    "x-forwarded-for": "::1",
+    "x-slack-signature": "v0=f1e01c20cdff71f48eec7f3d10f1bea05dff30bd6498d16f617b97cad96ddb62",
+    "x-slack-request-timestamp": "1593331107",
+    "x-bb-client-request-uuid": "1e3c658e-4b2e-4bc0-a27b-1f6c53f329f5",
+    "content-type": "application/x-www-form-urlencoded",
+    "accept-encoding": "gzip,deflate",
+    "accept": "application/json,*/*",
+    "content-length": "369",
+    "user-agent": "Slackbot 1.0 (+https://api.slack.com/robots)",
+    "host": "localhost:8888",
+    "connection": "close",
+    "client-ip": "::1"
+  },
+  "body": "token=XmQ3HBKfxUaDJcrgzERjLRcQ&team_id=T04TKP74X&team_domain=ardentink&channel_id=D19P8FK34&channel_name=directmessage&user_id=U04TKP753&user_name=dan&command=%2Ftribute&text=crazyTHINGbanana&response_url=https%3A%2F%2Fhooks.slack.com%2Fcommands%2FT04TKP74X%2F1234062376736%2FQTNDfQNfmQiXeVDq7eFgnnql&trigger_id=1203493626486.4937789167.7be37344ee4094cc990038a4f74063ca",
+  "isBase64Encoded": false
+}
